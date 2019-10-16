@@ -392,6 +392,16 @@
               <FileType>1</FileType>
               <FilePath>.\Src\BoardInit.c</FilePath>
             </File>
+            <File>
+              <FileName>Pins.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Inc\Pins.h</FilePath>
+            </File>
+            <File>
+              <FileName>Pins.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Src\Pins.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

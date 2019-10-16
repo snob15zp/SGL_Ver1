@@ -7,3 +7,4 @@
 .\objects\boardinit.o: C:\Users\RD\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_compiler.h
 .\objects\boardinit.o: C:\Users\RD\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_armcc.h
 .\objects\boardinit.o: C:\Users\RD\AppData\Local\Arm\Packs\AnalogDevices\ADuCM36x_DFP\1.0.4\Device\Include\system_ADuCM360.h
+.\objects\boardinit.o: .\Inc\Pins.h

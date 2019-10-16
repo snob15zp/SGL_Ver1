@@ -189,15 +189,25 @@ uint16_t interval=1;
   initRtcWakeUpTimer2 (&interval);
 	//startWakeUpOnEverySecond();
 	utcTime = setUtcDateTime(2019, 1, 1, 0, 0, 0);
+	utcTimeOld=utcTime;
 	
 //	goToSleep();
 
 	while (1){
+		
+    if (
+        (Flags.EXTERN_PWR == 0)
+		 && (Flags.SPI_BUSY==0)
+       )
 
+          {goToSleep();} 
+		
+		
+		
 		if(Flags.GET_SENSOR_DATA && !Flags.TEST_MODE){
 			Flags.GET_SENSOR_DATA = 0;	
 			if(storeSensorData()){storeToFlash();}
-//			if(Flags.EXTERN_PWR == 0) {goToSleep();}															// if VEXT is present no sleep
+			if(Flags.EXTERN_PWR == 0) {goToSleep();}															// if VEXT is present no sleep
 		}
 
 		if (Flags.UPDATE_RTC){
@@ -207,6 +217,10 @@ uint16_t interval=1;
 				if(storeSensorData()){recordsCount = 0;}
 				sendTestData();
       }
+			else
+			{
+				if ((utcTime-utcTimeOld)>5) {Flags.GET_SENSOR_DATA=1;utcTimeOld=utcTime;}
+			}
 		}
 		
 		if (Flags.UART_TX_END == 1){
@@ -238,7 +252,7 @@ void goToSleep(void){
 	disableUART();
 	disableADC();
 	pADI_CLKCTL->CLKCON0   = CLKCON0_CD_DIV8;            											// 1MHz output of UCLK divide
-/*
+
 	SCB->SCR = 0x04;       																										// for deep sleep mode - write to the Cortex-m3 System Control register bit2
 
 	pADI_PWRCTL->PWRKEY = 0x4859;   																					// key1 
@@ -251,7 +265,7 @@ void goToSleep(void){
 	__WFI(); 
 		
 	for(i = 0; i < 2; i++){}
-*/
+
 	pADI_CLKCTL->CLKCON0   = CLKCON0_CD_DIV4;            											// 2MHz output of UCLK divide
 
 }

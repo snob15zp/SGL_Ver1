@@ -3,11 +3,11 @@
 
 #include <stdint.h>
 
-#define SEL_2								(uint8_t)0x01						// for pin P0.0
-#define SEL_1								(uint8_t)0x08						// for pin P0.3
-#define CPU_FET							(uint8_t)0x10						// for P0.4
-#define VEXT_PRES						(uint8_t)0x20						// for pin P0.5
-#define	CNTR_PER						(uint8_t)0x01						// for pin P2.0	
+//#define SEL_2								(uint8_t)0x01						// for pin P0.0
+//#define SEL_1								(uint8_t)0x08						// for pin P0.3
+//#define CPU_FET							(uint8_t)0x10						// for P0.4
+//#define VEXT_PRES						(uint8_t)0x20						// for pin P0.5
+//#define	CNTR_PER						(uint8_t)0x01						// for pin P2.0	
 	
 #define DEFAULT_INTERVAL		(uint16_t)60
 #define ALARM_INTERVAL			(uint16_t)1
@@ -135,6 +135,7 @@ volatile int32_t 	resultAdc0;
 volatile int32_t 	resultAdc1;
 
 volatile uint32_t utcTime;
+volatile uint32_t utcTimeOld;
 volatile uint16_t	recordsCount;
 volatile uint32_t	pageCount;
 volatile uint32_t	sendsRecordsCount;

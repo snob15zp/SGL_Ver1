@@ -1,5 +1,6 @@
 
 #include "BoardInit.h"
+#include "Pins.h"
 
 /***************************************************************************************************************
 
@@ -255,10 +256,12 @@ void disableSpi_0(void){
 	pADI_CLKCTL->CLKCON1 |= CLKCON1_SPI0CD_MSK;																// set SPI0clk to UCLK/128
 	pADI_CLKCTL->CLKDIS |= CLKDIS_DISSPI0CLK;																	// disable SPI0clk
 
-	pADI_GP2->GPSET = CNTR_PER;																								// set CNTR_PER as Open Drain Float
-	pADI_GP2->GPOCE |= CNTR_PER; 
+	//pADI_GP2->GPSET = CNTR_PER;																								// set CNTR_PER as Open Drain Float
+  //	pADI_GP2->GPOCE |= CNTR_PER; 
+	
+	PinSPI_Off();
 
-	pADI_GP1->GPCON &= ~(GP1CON_CON7_SPI0CS | GP1CON_CON6_SPI0MOSI | GP1CON_CON5_SPI0SCLK | GP1CON_CON4_SPI0MISO);
+	//pADI_GP1->GPCON &= ~(GP1CON_CON7_SPI0CS | GP1CON_CON6_SPI0MOSI | GP1CON_CON5_SPI0SCLK | GP1CON_CON4_SPI0MISO);
 }
 
 /***************************************************************************************************************

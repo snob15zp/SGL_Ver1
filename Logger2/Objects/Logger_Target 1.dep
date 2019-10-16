@@ -1,5 +1,5 @@
 Dependencies for Project 'Logger', Target 'Target 1': (DO NOT MODIFY !)
-F (.\main.c)(0x5DA1CC4E)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Inc -I .\Src-I.\RTE\_Target_1-IC:\Users\RD\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\RD\AppData\Local\Arm\Packs\AnalogDevices\ADuCM36x_DFP\1.0.4\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -D__ADUCM360__-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\main.c)(0x5DA748B1)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Inc -I .\Src-I.\RTE\_Target_1-IC:\Users\RD\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\RD\AppData\Local\Arm\Packs\AnalogDevices\ADuCM36x_DFP\1.0.4\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -D__ADUCM360__-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5CEBC032)
 I (C:\Keil_v5\ARM\ARMCC\include\time.h)(0x5CEBC026)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5CEBC032)
@@ -11,10 +11,21 @@ I (C:\Users\RD\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_
 I (C:\Users\RD\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5D25D706)
 I (C:\Users\RD\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5D25D706)
 I (C:\Users\RD\AppData\Local\Arm\Packs\AnalogDevices\ADuCM36x_DFP\1.0.4\Device\Include\system_ADuCM360.h)(0x5CDBB11C)
-I (.\Inc\BoardInit.h)(0x5D9DB8E1)
-I (.\Inc\LoggerDef.h)(0x5DA1CC4C)
-F (.\Src\BoardInit.c)(0x5D9E05A1)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Inc -I .\Src-I.\RTE\_Target_1-IC:\Users\RD\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\RD\AppData\Local\Arm\Packs\AnalogDevices\ADuCM36x_DFP\1.0.4\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -D__ADUCM360__-o .\objects\boardinit.o --omf_browse .\objects\boardinit.crf --depend .\objects\boardinit.d)
-I (.\Inc\BoardInit.h)(0x5D9DB8E1)
+I (.\Inc\BoardInit.h)(0x5DA6F804)
+I (.\Inc\LoggerDef.h)(0x5DA74C14)
+F (.\Src\BoardInit.c)(0x5DA74C9A)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Inc -I .\Src-I.\RTE\_Target_1-IC:\Users\RD\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\RD\AppData\Local\Arm\Packs\AnalogDevices\ADuCM36x_DFP\1.0.4\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -D__ADUCM360__-o .\objects\boardinit.o --omf_browse .\objects\boardinit.crf --depend .\objects\boardinit.d)
+I (.\Inc\BoardInit.h)(0x5DA6F804)
+I (C:\Users\RD\AppData\Local\Arm\Packs\AnalogDevices\ADuCM36x_DFP\1.0.4\Device\Include\ADUCM360.h)(0x5CDBB11C)
+I (C:\Users\RD\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm3.h)(0x5D25D706)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEBC032)
+I (C:\Users\RD\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_version.h)(0x5D25D706)
+I (C:\Users\RD\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5D25D706)
+I (C:\Users\RD\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5D25D706)
+I (C:\Users\RD\AppData\Local\Arm\Packs\AnalogDevices\ADuCM36x_DFP\1.0.4\Device\Include\system_ADuCM360.h)(0x5CDBB11C)
+I (.\Inc\Pins.h)(0x5DA74C96)
+F (.\Inc\Pins.h)(0x5DA74C96)()
+F (.\Src\Pins.c)(0x5DA74D20)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Inc -I .\Src-I.\RTE\_Target_1-IC:\Users\RD\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\RD\AppData\Local\Arm\Packs\AnalogDevices\ADuCM36x_DFP\1.0.4\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -D__ADUCM360__-o .\objects\pins.o --omf_browse .\objects\pins.crf --depend .\objects\pins.d)
+I (.\Inc\Pins.h)(0x5DA74C96)
 I (C:\Users\RD\AppData\Local\Arm\Packs\AnalogDevices\ADuCM36x_DFP\1.0.4\Device\Include\ADUCM360.h)(0x5CDBB11C)
 I (C:\Users\RD\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm3.h)(0x5D25D706)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEBC032)
