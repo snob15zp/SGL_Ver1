@@ -184,7 +184,10 @@ int main (void){
 	limitsArray[1] = 0x7FFF;
 	limitsArray[2] = 0x7FFF;	
 
-	startWakeUpOnEverySecond();
+uint16_t interval=1;
+
+  initRtcWakeUpTimer2 (&interval);
+	//startWakeUpOnEverySecond();
 	utcTime = setUtcDateTime(2019, 1, 1, 0, 0, 0);
 	
 //	goToSleep();
@@ -344,8 +347,8 @@ int16_t getAdcResult(TAdcResult ar){
 	while(Flags.ADC0_READY == 0){}
 
 	int64_t result = (int64_t)resultAdc0;
-	result = result * 1200000 / 268435455;
-
+	//result = result * 1200000 / 268435455;
+  result = NormalizationADC0(result); 
 	pADI_GP0->GPCLR = SEL_1 | SEL_2;																					// out LOW to SEL_1 and SEL_2
 
 	return (int16_t)result;

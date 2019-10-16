@@ -22,6 +22,9 @@
 #define FLASH_STATUS_WIP		(uint8_t)0x01    				// FLASH write in progress bit
 #define FLASH_STATUS_WEL		(uint8_t)0x02						// FLASH write enable latch
 
+#define NormalizationADC0(res) ((res*10000000)/268435456)
+
+
 static const char*	okStr = "OK";
 static const char*	errStr = "ERROR";
 static const char*	devAddress = "1234";

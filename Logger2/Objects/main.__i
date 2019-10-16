@@ -1,0 +1,6 @@
+--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Inc -I .\Src
+-I.\RTE\_Target_1
+-IC:\Users\RD\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include
+-IC:\Users\RD\AppData\Local\Arm\Packs\AnalogDevices\ADuCM36x_DFP\1.0.4\Device\Include
+-D__UVISION_VERSION="528" -D_RTE_ -D__ADUCM360__
+-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d "main.c"

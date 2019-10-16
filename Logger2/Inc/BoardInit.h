@@ -33,6 +33,7 @@ void disableSpi_0(void);
 void enableADC(void);
 void disableADC(void);
 void startWakeUpOnEverySecond(void);
+void	initRtcWakeUpTimer2 (uint16_t* interval);
 
 #endif
 

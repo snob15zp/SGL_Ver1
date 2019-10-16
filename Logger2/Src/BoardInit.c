@@ -173,11 +173,32 @@ void	initRtcWakeUpTimer (uint16_t* interval){
 	NVIC_EnableIRQ(WUT_IRQn);
 }
 
+void	initRtcWakeUpTimer2 (uint16_t* interval){
+	uint32_t seconds;
+	seconds= (*interval);
+	pADI_CLKCTL->XOSCCON |= XOSCCON_ENABLE;
+	
+	//pADI_WUT->T2CON |= T2CON_STOPINC | T2CON_PRE_DIV32768 | T2CON_CLK_LFXTAL | T2CON_ENABLE | T2CON_WUEN; // start timer with clocking 1 secund
+	pADI_WUT->T2CON = T2CON_MOD_PERIODIC|T2CON_WUEN_EN| T2CON_PRE_DIV32768 | T2CON_CLK_LFXTAL;  /* configure the interrupt for wake-up field D T2CON_PRE_DIV16 */
+	
+	 pADI_WUT->T2WUFD0= (short)(seconds&0x0000FFFF);
+	 pADI_WUT->T2WUFD1= (short)(seconds>>16);
+	
+	//pADI_WUT->T2IEN = T2IEN_WUFA;	
+	
+
+	pADI_WUT->T2IEN |= (0x8 & 0x1F);  /* Configure the timeout  for the wake-up timer */ 
+	
+	NVIC_EnableIRQ(WUT_IRQn);
+ //nvicClearPendingIRQ(WUT_IRQn);
+	
+	T2CON_ENABLE_BBA = 1;
+}	
 
 /***************************************************************************************************************
 
 
-****************************************************************************************************************/
+****************************************************************************************************************
 #define	PRE_DIV				16
 #define ONE_SECUND		(32768 / PRE_DIV)			
 void startWakeUpOnEverySecond(void){
@@ -194,7 +215,7 @@ void startWakeUpOnEverySecond(void){
 	T2CON_ENABLE_BBA = 1; 																									// enable the timer
 }
 
-
+*/
 /***************************************************************************************************************
 
 
