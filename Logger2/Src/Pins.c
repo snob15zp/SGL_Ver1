@@ -76,16 +76,21 @@ void PinSel_Off(void)
 }
 void PinSel_On(void)
 {
+	pADI_GP0->GPCLR = SEL_2 | SEL_1;
 }
 	
 //********************************************** TxD RxD *****************************************************
 
 void PinRTxD_Init(void)
 {
-	pADI_GP0->GPOEN&= ~(RxD  | TxD ); 
-	pADI_GP0->GPOCE|= RxD  | TxD;
-	pADI_GP0->GPPUL|= RxD  | TxD;
-	//pADI_GP0->GPPUL&= ~(RxD  | TxD);
+	pADI_GP0->GPOEN&= ~( TxD ); 
+	pADI_GP0->GPOCE|= (TxD);
+	pADI_GP0->GPPUL|= (TxD);
+
+	pADI_GP0->GPOEN&= ~(RxD ); 
+	pADI_GP0->GPOCE&= ~(RxD );
+	pADI_GP0->GPPUL&= ~(RxD );
+
 }
 
 void PinRTxD_On(void)
@@ -99,31 +104,31 @@ void PinRTxD_Off(void)
 }
 
 //************************************** CPUFET ****************************************************************
-
-void PinCPUFET_Init(void) //Set up an open drain and sit in this mode 
-{
+//Do not used
+//void PinCPUFET_Init(void) //Set up an open drain and sit in this mode 
+//{
 	//pADI_GP0->GPOCE|= CPU_FET;
 	//pADI_GP0->GPOEN|= (CPU_FET); 
 	//pADI_GP0->GPSET = CPU_FET;
 	//pADI_GP0->GPPUL&= ~CPU_FET;
 	////pADI_GP0->GPPUL|=CPU_FET;
 	
-	pADI_GP0->GPOEN&= ~(MISO); 
-	pADI_GP0->GPOCE|= MISO;
-	pADI_GP0->GPPUL|= MISO;
-}
-void PinCPUFET_On(void) { 	/*PinCPUFET_Init();*/ }
-void PinCPUFET_Off(void) {	PinCPUFET_Init();   }
+//	pADI_GP0->GPOEN&= ~(MISO); 
+//	pADI_GP0->GPOCE|= MISO;
+//	pADI_GP0->GPPUL|= MISO;
+//}
+//void PinCPUFET_On(void) { 	/*PinCPUFET_Init();*/ }
+//void PinCPUFET_Off(void) {	PinCPUFET_Init();   }
 
 //*************************************** Vpres *****************************************************************
-
-void PinVpres_Init(void) //Set up an open drain and sit in this mode 
-{
+//Do not used
+//void PinVpres_Init(void) //Set up an open drain and sit in this mode 
+//{
 //	pADI_GP0->GPOCE&= ~VEXT_PRES;
 //	pADI_GP0->GPOEN&= ~VEXT_PRES; 
-	  pADI_GP0->GPPUL&= ~VEXT_PRES;
+//	  pADI_GP0->GPPUL&= ~VEXT_PRES;
 
-}
+//}
 //void PinVpres_On(void) {	/*PinVpres_Init(); */}
 //void PinVpres_Off(void){ 	/*PinVpres_Init();*/ }
 	
@@ -200,8 +205,16 @@ void PinCntrlPer_Init(void) //
 	//pADI_GP2->GPPUL&= ~(CNTR_PER);
 	pADI_GP2->GPPUL|=(CNTR_PER);
 }
-//void PinCntrlPer_On(void)
-//void PinCntrlPer_Off(void)	
+void PinCntrlPer_On(void)
+{
+	pADI_GP2->GPCLR = CNTR_PER;
+};
+
+void PinCntrlPer_Off(void)	
+{
+	pADI_GP2->GPSET = CNTR_PER;
+};
+
 //************************************************ Init All Pins **********************************************
 
 void PinAll_Init(void)
@@ -232,3 +245,6 @@ void PinSPI_Off(void)
 	PinMOSISCK_Off();
 	PinCS_Off();
 }
+
+
+
