@@ -83,13 +83,9 @@ void PinSel_On(void)
 
 void PinRTxD_Init(void)
 {
-	pADI_GP0->GPOEN&= ~( TxD ); 
-	pADI_GP0->GPOCE|= (TxD);
-	pADI_GP0->GPPUL|= (TxD);
-
-	pADI_GP0->GPOEN&= ~(RxD ); 
-	pADI_GP0->GPOCE&= ~(RxD );
-	pADI_GP0->GPPUL&= ~(RxD );
+	pADI_GP0->GPOEN&= ~( TxD | RxD ); 
+	pADI_GP0->GPOCE|= (TxD | RxD );
+	pADI_GP0->GPPUL|= (TxD | RxD );
 
 }
 
@@ -98,27 +94,39 @@ void PinRTxD_On(void)
 	pADI_GP0->GPCON |= GP0CON_CON1_UARTRXD | GP0CON_CON2_UARTTXD;					// configure pins P0.1 and P0.2 for UART
 }
 
+void PinRxD_TestVoltage_On(void)
+{
+	pADI_GP0->GPOEN&= ~(RxD ); 
+	pADI_GP0->GPOCE&= ~(RxD );
+	pADI_GP0->GPPUL&= ~(RxD );	
+	
+	pADI_GP0->GPCON &= ~(GP0CON_CON1_UARTRXD | GP0CON_CON2_UARTTXD);	
+}
+
 void PinRTxD_Off(void)
 {
+	PinRTxD_Init();
+	
 	pADI_GP0->GPCON &= ~(GP0CON_CON1_UARTRXD | GP0CON_CON2_UARTTXD);			// configure pins P0.1 and P0.2 for IO
 }
 
+
 //************************************** CPUFET ****************************************************************
 //Do not used
-void PinCPUFET_Init(void) //Set up an open drain and sit in this mode 
-{
+//void PinCPUFET_Init(void) //Set up an open drain and sit in this mode 
+//{
 	//pADI_GP0->GPOCE|= CPU_FET;
 	//pADI_GP0->GPOEN|= (CPU_FET); 
 	//pADI_GP0->GPSET = CPU_FET;
 	//pADI_GP0->GPPUL&= ~CPU_FET;
 	////pADI_GP0->GPPUL|=CPU_FET;
 	
-	pADI_GP0->GPOEN&= ~(MISO); 
-	pADI_GP0->GPOCE|= MISO;
-	pADI_GP0->GPPUL|= MISO;
-}
-void PinCPUFET_On(void) { 	/*PinCPUFET_Init();*/ }
-void PinCPUFET_Off(void) {	PinCPUFET_Init();   }
+//	pADI_GP0->GPOEN&= ~(MISO); 
+//	pADI_GP0->GPOCE|= MISO;
+//	pADI_GP0->GPPUL|= MISO;
+//}
+//void PinCPUFET_On(void) { 	/*PinCPUFET_Init();*/ }
+//void PinCPUFET_Off(void) {	PinCPUFET_Init();   }
 
 /*************************************** Vpres ******************************************************************/
 
