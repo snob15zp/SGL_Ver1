@@ -105,32 +105,32 @@ void PinRTxD_Off(void)
 
 //************************************** CPUFET ****************************************************************
 //Do not used
-//void PinCPUFET_Init(void) //Set up an open drain and sit in this mode 
-//{
+void PinCPUFET_Init(void) //Set up an open drain and sit in this mode 
+{
 	//pADI_GP0->GPOCE|= CPU_FET;
 	//pADI_GP0->GPOEN|= (CPU_FET); 
 	//pADI_GP0->GPSET = CPU_FET;
 	//pADI_GP0->GPPUL&= ~CPU_FET;
 	////pADI_GP0->GPPUL|=CPU_FET;
 	
-//	pADI_GP0->GPOEN&= ~(MISO); 
-//	pADI_GP0->GPOCE|= MISO;
-//	pADI_GP0->GPPUL|= MISO;
-//}
-//void PinCPUFET_On(void) { 	/*PinCPUFET_Init();*/ }
-//void PinCPUFET_Off(void) {	PinCPUFET_Init();   }
+	pADI_GP0->GPOEN&= ~(MISO); 
+	pADI_GP0->GPOCE|= MISO;
+	pADI_GP0->GPPUL|= MISO;
+}
+void PinCPUFET_On(void) { 	/*PinCPUFET_Init();*/ }
+void PinCPUFET_Off(void) {	PinCPUFET_Init();   }
 
-//*************************************** Vpres *****************************************************************
-//Do not used
-//void PinVpres_Init(void) //Set up an open drain and sit in this mode 
-//{
-//	pADI_GP0->GPOCE&= ~VEXT_PRES;
-//	pADI_GP0->GPOEN&= ~VEXT_PRES; 
-//	  pADI_GP0->GPPUL&= ~VEXT_PRES;
+/*************************************** Vpres ******************************************************************/
 
-//}
-//void PinVpres_On(void) {	/*PinVpres_Init(); */}
-//void PinVpres_Off(void){ 	/*PinVpres_Init();*/ }
+void PinVpres_Init(void) //Set up an open drain and sit in this mode 
+{
+	pADI_GP0->GPOCE&= ~VEXT_PRES;
+	pADI_GP0->GPOEN&= ~VEXT_PRES; 
+	  pADI_GP0->GPPUL&= ~VEXT_PRES;
+
+}
+void PinVpres_On(void) {	/*PinVpres_Init(); */}
+void PinVpres_Off(void){ 	/*PinVpres_Init();*/ }
 	
 //*************************************** MISO *****************************************************************
 

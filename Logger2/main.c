@@ -10,6 +10,7 @@
 #include <ADUCM360.h>
 #include "BoardInit.h"
 #include "LoggerDef.h"
+#include "crc8.h"
 
 typedef  uint16_t (*type_MyFunct)(void);
 static  const type_MyFunct funcAddress[] = {addrError, cmdError, setLoggerTime, getLoggerTime, getLoggerData, clrLoggerFlash, setLoggerLimits, 
@@ -167,7 +168,6 @@ int main (void){
 	enableADC();
 	initADC();
 	disableADC();
-
 	enableUART();
 	initUART();
 
