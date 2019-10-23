@@ -23,11 +23,10 @@ extern void PinSPI_On(void); // for flash, Resistor 1K must be install on MISO
 extern void PinSPI_Off(void);
 
 extern void PinRTxD_On(void); //for uart
+extern void PinRxD_TestVoltage_On(void); //for Test Voltage on Rx during WUT interrupt, must call PinRTxD_Off(void) after it
 extern void PinRTxD_Off(void);
 
 extern void PinSel_On(void); // for load sell
 extern void PinSel_Off(void); 
-
-
 	
 #endif
